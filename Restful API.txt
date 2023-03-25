@@ -1,0 +1,44 @@
+#Request Body
+{
+"name":"aditi jain",
+"email":"aditijain@example.com",
+"password":"password123"
+}
+
+{
+ "email":"aditijain@example.com",
+ "password":"password123"
+}
+#Response
+json
+{
+"token":" eyjhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9l
+IiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6y"
+}
+#Request Headers
+Authorization:Bearer<JWT>
+--
+#Response
+status 200 OK
+Status 401 unauthorized
+
+#Javascript
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+const plaintextPassword='password123';
+bcrypt.hash(plaintextPassword,saltRounds,fuction(err,hash){
+//store hash in your password DB.});
+
+const bcrypt = require('bcrypt');
+
+const plaintextPassword='password123';
+const hashedPassword='...';//retrieved from database
+
+bcrypt.compare(plaintextPassword,hashedPassword,function(err,result){
+if(result===true){
+//Passwords match
+}
+else{
+//Passwords don't match
